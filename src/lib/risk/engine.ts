@@ -27,39 +27,59 @@ export function getAgeGroup(age: number): AgeGroup {
 export const SYMPTOM_KEYWORDS: Record<string, number> = {
     // Emergency / High Risk
     'chest pain': 12,
-    'difficulty breathing': 10,
-    'breathless': 10,
+    'difficulty breathing': 12,
+    'breathless': 12,
+    'rapid breathing': 10,
+    'rapid_breathing': 10,
     'unconscious': 15,
     'severe bleeding': 12,
     'seizure': 12,
     'stroke': 15,
     'poison': 10,
     'suicidal': 15,
-    'life and death': 20,
-    'dying': 20,
     'emergency': 15,
     'critical': 15,
-    'urgent': 8,
 
     // Moderate / High
-    'fever': 5,
-    'high fever': 8,
+    'fever': 6,
+    'high fever': 9,
+    'chills': 7,
     'severe pain': 7,
-    'broken bone': 8,
-    'fracture': 8,
-    'vomiting': 4,
+    'body pain': 6,
+    'body_pain': 6,
+    'loss of appetite': 5,
+    'loss_of_appetite': 5,
+    'abdominal pain': 6,
+    'abdominal_pain': 6,
+    'vomiting': 5,
     'dehydration': 6,
-    'injury': 5,
+    'sweating': 6,
+    'dizziness': 5,
+    'fainting': 10,
+    'joint pain': 5,
+    'joint_pain': 5,
+    'stomach pain': 5,
+    'stomach_pain': 5,
 
     // Low / Moderate
-    'cough': 2,
-    'cold': 1,
-    'headache': 2,
-    'sore throat': 2,
-    'rash': 3,
-    'fatigue': 2,
-    'dizzy': 4,
-    'nausea': 3,
+    'cough': 3,
+    'cold': 2,
+    'headache': 3,
+    'sore throat': 4,
+    'sore_throat': 4,
+    'rash': 4,
+    'skin rash': 4,
+    'skin_rash': 4,
+    'skin eruptions': 5,
+    'skin_eruptions': 5,
+    'itching': 3,
+    'fatigue': 4,
+    'diarrhea': 4,
+    'nausea': 4,
+    'acidity': 3,
+    'burning sensation': 4,
+    'burning_sensation': 4,
+    'ulcers': 5,
 };
 
 export function analyzeSymptoms(input: string): Symptom[] {
@@ -85,7 +105,7 @@ export function analyzeSymptoms(input: string): Symptom[] {
 }
 
 export function calculateRisk(symptoms: Symptom[], ageGroup: AgeGroup): TriageResult {
-    let rawScore = symptoms.reduce((acc, curr) => acc + curr.weight, 0);
+    const rawScore = symptoms.reduce((acc, curr) => acc + curr.weight, 0);
     const textSymptoms = symptoms.map(s => s.name.toLowerCase());
 
     const suspectedConditions: DiseasePattern[] = [];
@@ -104,8 +124,8 @@ export function calculateRisk(symptoms: Symptom[], ageGroup: AgeGroup): TriageRe
             suspectedConditions.push(disease);
 
             // Add hazard bonus for matching emergency patterns
-            if (disease.riskLevel === 'emergency') patternBonus += 10;
-            if (disease.riskLevel === 'high') patternBonus += 5;
+            if (disease.riskLevel === 'emergency') patternBonus += 12;
+            if (disease.riskLevel === 'high') patternBonus += 6;
         }
     });
 
@@ -113,7 +133,7 @@ export function calculateRisk(symptoms: Symptom[], ageGroup: AgeGroup): TriageRe
 
     // Age-based modifiers
     if (ageGroup === 'pediatric' || ageGroup === 'geriatric') {
-        score *= 1.25; // Slightly increased for vulnerable groups
+        score *= 1.35; // Increased sensitivity for vulnerable groups
     }
 
     let riskLevel: RiskLevel = 'low';
@@ -125,7 +145,7 @@ export function calculateRisk(symptoms: Symptom[], ageGroup: AgeGroup): TriageRe
     } else if (score >= 12 || suspectedConditions.some(d => d.riskLevel === 'high')) {
         riskLevel = 'high';
         pathway = 'Urgent Care / Specialist Referral';
-    } else if (score >= 5) {
+    } else if (score >= 6) {
         riskLevel = 'moderate';
         pathway = 'General Practitioner Visit';
     }

@@ -57,11 +57,35 @@ export const DISEASE_DATASET: DiseasePattern[] = [
         riskLevel: 'moderate'
     },
     {
+        id: 'typhoid',
+        name: 'Typhoid Fever',
+        description: 'Bacterial infection characterized by prolonged high fever and abdominal distress.',
+        primarySymptoms: ['fever', 'abdominal pain', 'headache'],
+        secondarySymptoms: ['fatigue', 'loss of appetite', 'body pain', 'nausea'],
+        riskLevel: 'high'
+    },
+    {
+        id: 'malaria',
+        name: 'Malaria',
+        description: 'Parasitic infection marked by cyclical fevers, chills, and sweating.',
+        primarySymptoms: ['fever', 'chills', 'sweating'],
+        secondarySymptoms: ['body pain', 'vomiting', 'nausea', 'headache'],
+        riskLevel: 'high'
+    },
+    {
+        id: 'pneumonia',
+        name: 'Pneumonia',
+        description: 'Infection that inflames air sacs in one or both lungs, leading to difficulty breathing.',
+        primarySymptoms: ['cough', 'rapid breathing', 'difficulty breathing'],
+        secondarySymptoms: ['fever', 'fatigue', 'chills', 'sweating'],
+        riskLevel: 'high'
+    },
+    {
         id: 'flu-like-illness',
         name: 'Influenza-like Illness',
         description: 'General viral symptoms affecting the whole body.',
-        primarySymptoms: ['high fever', 'body aches'],
-        secondarySymptoms: ['dry cough', 'fatigue', 'headache', 'shivering'],
+        primarySymptoms: ['fever', 'body ache'],
+        secondarySymptoms: ['cough', 'fatigue', 'headache', 'chills'],
         riskLevel: 'moderate'
     },
     {

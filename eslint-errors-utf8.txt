@@ -1,0 +1,204 @@
+﻿
+> healthcare-app@0.1.0 lint
+> eslint
+
+
+D:\Final Year Project\healthcare-app\backend\dist\db\index.js
+  6:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  7:34  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  8:32  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\dist\db\sos.js
+  7:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  8:34  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\dist\middleware\upload.js
+  7:34  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  8:32  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\dist\routes\dataset.js
+   6:19  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+   7:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+   8:38  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+   9:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  10:30  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\dist\routes\hospitals.js
+  6:19  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  7:30  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  8:25  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\dist\routes\risk-analysis.js
+  6:19  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  7:33  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\dist\routes\sos.js
+  6:35  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  7:31  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\dist\server.js
+   6:35  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+   7:32  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+   8:34  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+   9:35  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  10:37  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  11:41  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  12:31  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  13:15  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\dist\utils\csv-hospitals.js
+  8:30  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  9:36  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\scripts\analyze_hospitals.js
+  2:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\scripts\check_columns.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\scripts\check_csv_header.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\scripts\check_db.js
+  1:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\scripts\check_diseases.js
+  2:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\scripts\check_hex.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\scripts\diagnose_error.js
+  1:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\scripts\import_hospitals.js
+  2:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  4:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  5:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  6:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\scripts\import_risk_data.js
+  2:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  4:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  5:13  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  6:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\scripts\import_to_pg.js
+  2:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  4:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  5:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  6:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\scripts\inspect_datasets.js
+  2:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  4:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\scripts\list_all_symptoms.js
+  1:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\scripts\list_diseases.js
+  1:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\scripts\list_tables.js
+  2:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  4:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\scripts\sync_datasets_v2.js
+  1:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  4:13  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  5:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\scripts\temp_inspect.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:13  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\scripts\test_pool.js
+  2:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:34  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\backend\scripts\test_risk_api.js
+  1:15  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\Final Year Project\healthcare-app\src\app\(auth)\login\page.tsx
+  55:24  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\Final Year Project\healthcare-app\src\app\appointments\[id]\page.tsx
+  52:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\Final Year Project\healthcare-app\src\app\appointments\[id]\page.tsx:52:9
+  50 |
+  51 |     useEffect(() => {
+> 52 |         setMounted(true);
+     |         ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  53 |         if (params.id) {
+  54 |             // Check static data first
+  55 |             const staticH = getHospitalById(params.id as string);  react-hooks/set-state-in-effect
+
+D:\Final Year Project\healthcare-app\src\app\appointments\page.tsx
+  605:90   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  605:173  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+D:\Final Year Project\healthcare-app\src\app\page.tsx
+   69:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  139:35  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  166:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  237:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  254:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  333:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+D:\Final Year Project\healthcare-app\src\app\sos\page.tsx
+  316:95   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  316:163  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+D:\Final Year Project\healthcare-app\src\components\features\triage\TriageForm.tsx
+  386:82   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  386:114  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  509:69   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  509:91   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+D:\Final Year Project\healthcare-app\src\components\layout\AmbientBackground.tsx
+  54:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\Final Year Project\healthcare-app\src\components\layout\AmbientBackground.tsx:54:9
+  52 |
+  53 |     useEffect(() => {
+> 54 |         setParticles([...Array(25)].map((_, i) => ({
+     |         ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  55 |             id: i,
+  56 |             top: `${Math.random() * 100}%`,
+  57 |             left: `${Math.random() * 100}%`,  react-hooks/set-state-in-effect
+
+Γ£û 99 problems (94 errors, 5 warnings)
+

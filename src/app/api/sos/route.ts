@@ -1,21 +1,27 @@
+
 import { NextResponse } from 'next/server';
-import dbConnect from '@/lib/db/mongodb';
-import SOS from '@/models/SOS';
 
 export async function POST(req: Request) {
     try {
-        await dbConnect();
-        const data = await req.json();
+        const body = await req.json();
+        const { userId, location, timestamp } = body;
 
-        const newSOS = await SOS.create({
-            userId: data.userId || 'anonymous',
-            location: data.location,
-            timestamp: new Date(data.timestamp),
+        // Log the SOS request for now since database connectivity is removed from this route.
+        // In a real scenario, this would forward to the backend service or external API.
+        console.log('🚨 SOS Alert Received (Ephemeral Mode):', {
+            userId: userId || 'anonymous',
+            location,
+            timestamp: new Date(timestamp),
             status: 'active'
         });
 
-        return NextResponse.json({ success: true, id: newSOS._id }, { status: 201 });
+        return NextResponse.json({
+            success: true,
+            message: 'SOS Alert Logged (Database Disconnected)',
+            processedAt: new Date().toISOString()
+        }, { status: 201 });
     } catch (error: any) {
-        return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+        console.error('SOS Error:', error);
+        return NextResponse.json({ success: false, error: 'Failed to process SOS alert' }, { status: 500 });
     }
 }

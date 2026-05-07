@@ -19,7 +19,7 @@ export default function RootLayout({
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ToastProvider>
           <AmbientBackground />

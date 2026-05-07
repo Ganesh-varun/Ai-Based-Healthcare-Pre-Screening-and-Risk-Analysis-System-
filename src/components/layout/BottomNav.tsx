@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Navigation, Activity, Shield, Settings } from 'lucide-react';
+import { Heart, Map as MapIcon, Activity, Shield, Settings, Navigation } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -15,8 +15,9 @@ export const BottomNav = ({ onSettingsClick }: BottomNavProps) => {
 
     const tabs = [
         { icon: Heart, path: '/', label: 'Home' },
-        { icon: Navigation, path: '/appointments', label: 'Care' },
+        { icon: MapIcon, path: '/resources', label: 'Map' },
         { icon: Activity, path: '/triage', label: 'Triage', isCenter: true },
+        { icon: Navigation, path: '/appointments', label: 'Care' },
         { icon: Shield, path: '/sos', label: 'SOS' },
         { icon: Settings, path: '#', label: 'Settings', isSettings: true },
     ];
@@ -31,8 +32,8 @@ export const BottomNav = ({ onSettingsClick }: BottomNavProps) => {
                         whileHover={{ scale: 1.1, y: tab.isCenter ? -5 : 0 }}
                         whileTap={{ scale: 0.9 }}
                         className={`${tab.isCenter
-                                ? `w-14 h-14 rounded-full flex items-center justify-center text-white shadow-xl -mt-10 transition-all ${isActive ? 'bg-blue-500 ring-4 ring-slate-900' : 'bg-blue-600'}`
-                                : `p-2 transition-colors relative ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`
+                            ? `w-14 h-14 rounded-full flex items-center justify-center text-white shadow-xl -mt-10 transition-all ${isActive ? 'bg-blue-500 ring-4 ring-slate-900' : 'bg-blue-600'}`
+                            : `p-2 transition-colors relative ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`
                             }`}
                     >
                         <tab.icon size={tab.isCenter ? 28 : 24} />
@@ -47,7 +48,7 @@ export const BottomNav = ({ onSettingsClick }: BottomNavProps) => {
 
                 if (tab.isSettings) {
                     return (
-                        <button key={tab.label} onClick={onSettingsClick}>
+                        <button key={tab.label} onClick={onSettingsClick} suppressHydrationWarning>
                             {content}
                         </button>
                     );

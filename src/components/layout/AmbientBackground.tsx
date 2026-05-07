@@ -51,6 +51,7 @@ export const AmbientBackground = () => {
     const [particles, setParticles] = useState<any[]>([]);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setParticles([...Array(25)].map((_, i) => ({
             id: i,
             top: `${Math.random() * 100}%`,

@@ -8,7 +8,7 @@ import Link from 'next/link';
 export default function TriagePage() {
     return (
         <div className="min-h-screen bg-slate-50">
-            <div className="max-w-md mx-auto py-8 px-6 space-y-8 pb-24">
+            <div className="max-w-4xl mx-auto py-8 px-6 space-y-8 pb-24">
                 <Link href="/" className="inline-flex items-center gap-2 text-slate-500 font-bold hover:text-slate-800 transition-colors">
                     <ChevronLeft size={20} /> BACK TO HOME
                 </Link>
