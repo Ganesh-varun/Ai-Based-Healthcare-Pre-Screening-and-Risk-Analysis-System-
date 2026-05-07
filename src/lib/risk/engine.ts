@@ -1,0 +1,143 @@
+import { DISEASE_DATASET, DiseasePattern } from '@/data/diseases';
+
+export type AgeGroup = 'pediatric' | 'adult' | 'geriatric';
+export type RiskLevel = 'low' | 'moderate' | 'high' | 'emergency';
+
+export interface TriageResult {
+    ageGroup: AgeGroup;
+    riskLevel: RiskLevel;
+    pathway: string;
+    score: number;
+    suspectedConditions: DiseasePattern[];
+    analysisNotes?: string;
+}
+
+export interface Symptom {
+    id: string;
+    name: string;
+    weight: number;
+}
+
+export function getAgeGroup(age: number): AgeGroup {
+    if (age < 14) return 'pediatric';
+    if (age <= 50) return 'adult';
+    return 'geriatric';
+}
+
+export const SYMPTOM_KEYWORDS: Record<string, number> = {
+    // Emergency / High Risk
+    'chest pain': 12,
+    'difficulty breathing': 10,
+    'breathless': 10,
+    'unconscious': 15,
+    'severe bleeding': 12,
+    'seizure': 12,
+    'stroke': 15,
+    'poison': 10,
+    'suicidal': 15,
+    'life and death': 20,
+    'dying': 20,
+    'emergency': 15,
+    'critical': 15,
+    'urgent': 8,
+
+    // Moderate / High
+    'fever': 5,
+    'high fever': 8,
+    'severe pain': 7,
+    'broken bone': 8,
+    'fracture': 8,
+    'vomiting': 4,
+    'dehydration': 6,
+    'injury': 5,
+
+    // Low / Moderate
+    'cough': 2,
+    'cold': 1,
+    'headache': 2,
+    'sore throat': 2,
+    'rash': 3,
+    'fatigue': 2,
+    'dizzy': 4,
+    'nausea': 3,
+};
+
+export function analyzeSymptoms(input: string): Symptom[] {
+    const text = input.toLowerCase();
+    const found: Symptom[] = [];
+
+    Object.entries(SYMPTOM_KEYWORDS).forEach(([keyword, weight]) => {
+        if (text.includes(keyword)) {
+            found.push({
+                id: `manual-${keyword}`,
+                name: keyword,
+                weight: weight
+            });
+        }
+    });
+
+    // Fallback if no keywords found but text is provided
+    if (found.length === 0 && input.trim().length > 5) {
+        found.push({ id: 'manual-generic', name: 'Other symptoms', weight: 3 });
+    }
+
+    return found;
+}
+
+export function calculateRisk(symptoms: Symptom[], ageGroup: AgeGroup): TriageResult {
+    let rawScore = symptoms.reduce((acc, curr) => acc + curr.weight, 0);
+    const textSymptoms = symptoms.map(s => s.name.toLowerCase());
+
+    const suspectedConditions: DiseasePattern[] = [];
+    let patternBonus = 0;
+
+    // Pattern Matching Logic
+    DISEASE_DATASET.forEach(disease => {
+        const primaryMatchCount = disease.primarySymptoms.filter(s => textSymptoms.includes(s.toLowerCase())).length;
+        const secondaryMatchCount = disease.secondarySymptoms.filter(s => textSymptoms.includes(s.toLowerCase())).length;
+
+        const primaryScore = (primaryMatchCount / disease.primarySymptoms.length) * 100;
+        const totalMatches = primaryMatchCount + secondaryMatchCount;
+
+        // If strong primary match or good overall match
+        if (primaryScore > 60 || (primaryMatchCount >= 1 && totalMatches >= 3)) {
+            suspectedConditions.push(disease);
+
+            // Add hazard bonus for matching emergency patterns
+            if (disease.riskLevel === 'emergency') patternBonus += 10;
+            if (disease.riskLevel === 'high') patternBonus += 5;
+        }
+    });
+
+    let score = rawScore + patternBonus;
+
+    // Age-based modifiers
+    if (ageGroup === 'pediatric' || ageGroup === 'geriatric') {
+        score *= 1.25; // Slightly increased for vulnerable groups
+    }
+
+    let riskLevel: RiskLevel = 'low';
+    let pathway = 'OPD / Home Care';
+
+    if (score >= 20 || suspectedConditions.some(d => d.riskLevel === 'emergency')) {
+        riskLevel = 'emergency';
+        pathway = 'EMERGENCY - Call for Help Immediately';
+    } else if (score >= 12 || suspectedConditions.some(d => d.riskLevel === 'high')) {
+        riskLevel = 'high';
+        pathway = 'Urgent Care / Specialist Referral';
+    } else if (score >= 5) {
+        riskLevel = 'moderate';
+        pathway = 'General Practitioner Visit';
+    }
+
+    return {
+        ageGroup,
+        riskLevel,
+        pathway,
+        score: Math.min(score, 100),
+        suspectedConditions,
+        analysisNotes: suspectedConditions.length > 0
+            ? `Identified patterns consistent with ${suspectedConditions[0].name}.`
+            : undefined
+    };
+}
